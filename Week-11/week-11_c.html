@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Password Strength Verifier</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background: linear-gradient(120deg,#00adb0,#00adb0);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.card{
+  background:rgb(200, 255, 200);
+  padding:30px;
+  border-radius:12px;
+  width:350px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>Password Strength Verifier</h2>
+  <p><b>Conditions:</b><br>
+  • At least 6 characters<br>
+  • At least one special symbol<br>
+  • At least one uppercase letter
+  </p>
+  <input type="password" id="pass" onkeyup="checkStrength()">
+  <p id="msg"></p>
+</div>
+<script>
+function checkStrength(){
+  let pass = document.getElementById("pass").value;
+  let msg = document.getElementById("msg");
+  let strong = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/;
+  if(strong.test(pass)){
+    msg.innerText = "Strong Password";
+    msg.style.color = "green";
+  } else {
+    msg.innerText = "Weak Password";
+    msg.style.color = "red";
+  }
+}
+</script>
+</body>
+</html>
