@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(120deg, #186e3b, #186e3b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+.card {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+button {
+  background: #7f97a9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Registration Form</h2>
+<form onsubmit="return validateForm()">
+<input type="text" id="name" placeholder="Enter your Name">
+<input type="text" id="email" placeholder="Enter your Email">
+<input type="password" id="pass" placeholder="Enter your Password">
+<button type="submit">Submit</button>
+<p id="msg"></p>
+</form>
+</div>
+<script>
+function validateForm(){
+ let name=document.getElementById("name").value;
+ let email=document.getElementById("email").value;
+ let pass=document.getElementById("pass").value;
+ let msg=document.getElementById("msg");
+ let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+ let strong=/^.{6,}$/;
+ if(name===""){ msg.innerText="Name should not be empty"; return false; }
+ if(!emailPattern.test(email)){ msg.innerText="Invalid email entered"; return false; }
+ if(!strong.test(pass)){ msg.innerText="Password should be at least 6 characters long"; return false; }
+ alert("Registration Successful");
+ return true;
+}
+</script>
+</body>
+</html>
