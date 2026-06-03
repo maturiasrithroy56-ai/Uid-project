@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>ID verifier</title>
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(120deg,#ff7e5f,#feb47b);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.card {
+  background:#2c3e50;
+  padding:30px;
+  border-radius:12px;
+  width:300px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  color:white;
+}
+input {
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:6px;
+  border:none;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>ID required</h2>
+<input type="text" id="username" placeholder="Kindly enter your ID" onkeyup="checkUsername()">
+<p id="msg"></p>
+</div>
+<script>
+function checkUsername() {
+  let val = document.getElementById("username").value;
+  let msg = document.getElementById("msg");
+  if(val.length < 5){
+    msg.innerText = "Minimum 5 characters required";
+    msg.style.color = "red";
+  }
+  else{
+    msg.innerText = "Valid username";
+    msg.style.color = "lightgreen";
+  }
+}
+</script>
+</body>
+</html>
